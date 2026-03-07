@@ -1,4 +1,4 @@
-/* File: ee */
+/* File: Menentukan Tahun Kabisat atau bukan, lalu Menolak Masukan Tidak Valid */
 #include <stdio.h>
 
 int main (){
