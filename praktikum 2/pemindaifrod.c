@@ -3,12 +3,11 @@
 
 int isPrime(int p){
     int i;
-    if(p < 2){
+    if(p < 2)
         return 0;
-    }
 
     for(i = 2; i * i <= p; i++){
-        if(i % p == 0){
+        if(p % i == 0){
             return 0;
         }
     }
