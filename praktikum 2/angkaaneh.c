@@ -1,9 +1,10 @@
-/* File: angkaaneh.c */
+/* File: angkaaneh.c : Penjumlahan Faktorial sama dengan Input Angka Awal */
 #include <stdio.h>
 
 int faktorial(int n){
     int angka = 1;
-    for(int i = 1; i <= n; i++){
+    for(int i = 1; i <= n; i++){    
+        // make sure i dari satu karena akan dimasukkan kedalam operasi perkalian
         angka = angka * i;
     }
     return angka;
@@ -37,6 +38,7 @@ int main(){
         scanf("%d", &F);
 
         if(cekAngkaAneh(F)){
+            // arti : jika yang keluar true
             printf("BAHAYA\n");
         }
         else{
