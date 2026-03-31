@@ -17,24 +17,30 @@ int main(){
 
     for(int j = 0; j < Q; j++){
         scanf(" %c %d", &C, &K);
-    }
-
-    if(C == 'L'){
-        for(int i = 0; i < K; i++){
-            for(int i = N - 1; i >= 0; i--){
-                printf("%d", A[i]);
+        for(int t = 0; t < K; t++){
+            if(C == 'L'){
+                int temp = A[0];
+                for(int i = 0; i < N - 1; i++){
+                    A[i] = A[i + 1];
+                }
+                A[N - 1] = temp;
+            }
+            else if(C == 'R'){
+                int temp = A[N - 1];
+                for(int i = N - 1; i >= 0; i--){
+                    A[i] = A[i - 1];
+                }
+                A[0] = temp;
             }
         }
     }
-    else if(C == 'R'){
-        for(int i = 0; i < K; i++){
-            for(int i = 0; i < N; i++){
-                printf("%d", A[i + 1]);
-                printf(" %d", A[i]);
-            }
+
+    for(int i = 0; i < N; i++){
+        printf("%d", A[i]);
+        if(i != N - 1){
+            printf(" ");
         }
     }
 
-    printf("\n");
     return 0;
 }
