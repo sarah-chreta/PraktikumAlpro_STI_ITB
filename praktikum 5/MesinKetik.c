@@ -70,7 +70,24 @@ void cursorLeft(ListKetik *L){
 // cursorLeft(&L) --> nanti akan kegeser ke cursor = 1
 
 void cursorRight(ListKetik *L){
+    if(L->cursor < L->nEff){
+        L->cursor++;
+    }
+}
 
+void cursorHome(ListKetik *L){
+    L->cursor = 0;
+}
+
+void cursorEnd(ListKetik *L){
+    L->cursor = L->nEff;
+}
+
+void printTeks(ListKetik L){
+    for(int i = 0; i < L.nEff; i++){
+        printf("%c", L.contents[i]);
+    }
+    printf("\n");
 }
 
 
