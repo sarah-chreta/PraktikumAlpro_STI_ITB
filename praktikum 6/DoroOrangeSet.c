@@ -67,3 +67,32 @@ bool REMOVE_ORANGE(DoroOrangeSet *S, int x){
     S->count--;
     return true;
 }
+
+int CARDINALITY(const DoroOrangeSet *S){
+    return S->count;
+}
+
+int TOTAL_ENERGY(const DoroOrangeSet *S){
+    int sum = 0;
+    for(int i = 0; i < S->count; i++){
+        sum = sum + S->data[i];
+    }
+    return sum;
+}
+
+void PRINT_SET(const DoroOrangeSet *S){
+    if(S->count == 0){
+        printf("{}\n");
+        return;
+    }
+    else{
+        printf("{");
+        for(int i = 0; i < S->count; i++){
+            printf("%d", S->data[i]);
+            if(i < S->count - 1){
+                printf(", ");
+            }
+        }
+        printf("}\n");
+    }
+}
