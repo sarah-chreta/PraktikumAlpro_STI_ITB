@@ -41,5 +41,30 @@ bool add(Set *S, ElType x){
 
 bool removeSet(Set *S, ElType x){
     // geser kiri untuk menutup lubang
+    int idx = -1;
+
+    for(int i = 0; i < S->count; i++){
+        if(S->data[i] == x){
+            idx = i;
+            break;
+        }
+    }
+
+    if(idx == -1){
+        return false;
+    }
+
+    for(int i = idx; i < S->count - 1; i++){ // mulai dari depan, x ditimpa duluan
+        S->data[i] = S->data[i + 1]; 
+    }
+    S->count--;
+    return true;
+}
+
+Set unionSet(Set S1, Set S2){
+    // contoh :
+    // s = {12, 26, 7, 47, 32}
+    // t = {5, 12}
+    // union = {12, 26, 7, 47, 32, 5}
     
 }
