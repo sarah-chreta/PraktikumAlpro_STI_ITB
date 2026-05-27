@@ -1,6 +1,7 @@
 /* File: MysteryJournalSet.c */
 
 #include "MysteryJournalSet.h"
+#include <stdio.h>
 
 void CREATE_SET(MysteryJournalSet *S){
     S->count = 0;
