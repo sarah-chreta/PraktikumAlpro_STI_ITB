@@ -104,12 +104,45 @@ void swap(int *a, int *b){ // butuh pointer agar mengubah variabel asli, bukan h
 
 void sorting(int data[], int n){
     // mau sort data sebanyak n kali
-    for(int i = 0; i < n - 1)
+    for(int i = 0; i < n - 1; i++){
+        int min = i; // set dulu sekarang minimumnya di siapa
+        for(int j = i + 1; j < n; j++){
+            if(data[j] < data[min]){
+                min = j;
+                // min disini menyimpan index/posisi elemen terkecil
+            }
+        }
+        // kalo sudah bener minimumnya di i, maka akan swap dengan dirinya sendiri
+        swap(&data[i], &data[min]);
+    }
 }
 
 void PRINT_SET(const MysteryJournalSet *S){ // karena harus menarik : yang berarti terurut, maka mending bikin prosedur baru
     if(S->count == 0){
         printf("{}\n");
+        return;
     }
 
+    // siapkan dulu slot data sebanyak MAX PAGE, walaupun nantinya hanya dipake beberapa elemen
+    // harus copas dulu isi setnya ke temp
+    // supaya isi aslinya ga berubah
+    // kalo langsung sort, misalnya isi asli : 10 5 20 
+    // langsung sort --> 5 10 20
+    // --> nanti isi aslinya berubah jadi : 5 10 20
+    int temp[MAX_PAGE];
+
+    for(int i = 0; i < S->count; i++){
+        temp[i] = S->data[i];
+    }
+
+    // melakukan sort sebanyak berapa jumlah elemen di S
+    sorting(temp, S->count);
+
+    for(int i = 0; i < S->count; i++){
+        printf("%d", temp[i]);
+        if(i < S->count - 1){
+            printf(", ");
+        }
+    }
+    printf("}");
 }
