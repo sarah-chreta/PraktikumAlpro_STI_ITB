@@ -66,5 +66,18 @@ Set unionSet(Set S1, Set S2){
     // s = {12, 26, 7, 47, 32}
     // t = {5, 12}
     // union = {12, 26, 7, 47, 32, 5}
-    
+    Set S3;
+    // harus diinisialisasi bahwa set masih kosong, kalo ga di inisialisasi 
+    // program akan anggap set nya berisi sampah
+    S3.count = 0;
+
+    for(int i = 0; i < S1.count; i++){
+        add(&S3, S1.data[i]);
+    }
+
+    for(int i = 0; i < S2.count; i++){
+        add(&S3, S2.data[i]);
+    }
+
+    return S3;
 }
