@@ -67,5 +67,31 @@ bool UNSET_ITEM(MysteryShopMap *M, const char *key){
 }
 
 bool FIND_ITEM(const MysteryShopMap *M, const char *key, int *value){
-    
+    for(int i = 0; i < M->count; i++){
+        if(strcmp(M->data[i].key, key) == 0){
+            *value = M->data[i].value;
+            return true;
+        }
+    }
+    return false;
+}
+
+int TOTAL_STOCK(const MysteryShopMap *M){
+    int sum = 0;
+
+    for(int i = 0; i < M->count; i++){
+        sum = sum + M->data[i].value;
+    }
+    return sum;
+}
+
+// dalam format :
+// key value 
+// jadi tidak perlu koma
+void PRINT_MAP(const MysteryShopMap *M){
+    for(int i = 0; i < M->count; i++){
+        printf("%s %d\n", M->data[i].key, M->data[i].value);
+        // %c : hanya cetak satu karakter
+        // %s : string which is key itu
+    }
 }
