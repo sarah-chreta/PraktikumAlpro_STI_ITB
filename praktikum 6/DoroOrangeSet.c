@@ -1,6 +1,7 @@
 /* File: DoroOrangeSet.c */
 
 #include "DoroOrangeSet.h"
+#include <stdio.h>
 
 void CREATE_SET(DoroOrangeSet *S){
     S->count = 0;
