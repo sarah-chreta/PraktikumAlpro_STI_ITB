@@ -162,8 +162,9 @@ void deleteLast(List *l, ElType *val){
     }
 
     // kalo udah nemu p.next = NULL :
-    if(loc = NULL){
-        *l = NULL;
+    if(loc == NULL){
+        *l = NULL; // kasus list hanya satu elemen
+        // jadinya *l setelah dihapus ya gaada isi
     }
     else{
         NEXT(loc) = NULL;
